@@ -148,7 +148,9 @@ public class UdpManager implements Runnable{
 		{
 			byte[] buf = msg.getBytes();
 			DatagramPacket op = 
-					new DatagramPacket(buf,buf.length,InetAddress.getByName(addresssIP),this.yListenerPort);//封包（对方接收数据端口）
+					new DatagramPacket(buf,buf.length,
+							InetAddress.getByName(addresssIP),
+							this.yListenerPort);//封包（对方接收数据端口）
 			this.out.send(op);//发送信息
 		}
 		catch(Exception e)

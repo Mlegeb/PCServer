@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
+import com.mlegeb.core.DataHandler;
 import com.mlegeb.udpservice.SocketListener;
 import com.mlegeb.udpservice.UdpManager;
 
@@ -19,6 +20,10 @@ public class MainFrame extends JFrame implements SocketListener{
 	private static final long serialVersionUID = 1L;
 
 	private UdpManager udpManager = new UdpManager();
+	private DataHandler dataHandler;
+	private GamePadFrame gamePadPanel;
+	private IndexFrame indexPanel;
+	private AboutFrame aboutPanel;
 
 	/**
 	 * 主界面初始化
@@ -40,26 +45,30 @@ public class MainFrame extends JFrame implements SocketListener{
 		this.add(tabPane);// 将选项窗格放置在面板中 
 		
 		// 创建一个Setting面板并添加到选项窗格,这是指定图标的方法
-		SettingsFrame settingsPanel = new SettingsFrame();
-		tabPane.addTab("主页", settingsPanel);
+		indexPanel = new IndexFrame(udpManager);
+		tabPane.addTab("主页", indexPanel);
 
-		GamePadFrame GamePadPanel = new GamePadFrame();
-		tabPane.addTab("手柄", GamePadPanel);
+		gamePadPanel = new GamePadFrame();
+		tabPane.addTab("手柄", gamePadPanel);
 
-		AboutFrame aboutPanel = new AboutFrame();
+		aboutPanel = new AboutFrame();
 		tabPane.addTab("关于",  aboutPanel);
 
 		// 选择第一个选项页为当前选择的选项页
 		tabPane.setSelectedIndex(0);
 		
+		
+		dataHandler = new DataHandler(indexPanel);
 		//开启UDP监听
+		udpManager.addSocketListener(this);
 		udpManager.start();
 	}
 
 
+	
 	@Override
 	public void getSocketMessage(String e) {
-		
-		
+		dataHandler.procesData(e);
+		System.out.println("receive: " + e);
 	}
 }
