@@ -98,13 +98,17 @@ public class UdpManager implements Runnable{
 	{
 		try
 		{
+			String str = new String();
 			while (true)
 			{
 				byte[] buf = new byte[1024*16];//发送接收信息的最大值，单位字节（16KB）
 				DatagramPacket op = new DatagramPacket(buf,buf.length);//收包
 				this.in.receive(op);//接收信息（监听，一直监视端口是否有数据发送过来）
 				//获取对方的IP地址
-				this.addresssIP = op.getAddress().toString();
+				
+				str = op.getAddress().toString();
+				str = str.substring(1);
+				this.addresssIP = str;
 				String msgList = new String(buf).trim();
 				this.handle.getSocketMessage(msgList);
 			}
@@ -114,6 +118,8 @@ public class UdpManager implements Runnable{
 			e.printStackTrace();
 		}
 	}
+
+	
 
 	/**
 	 * 关闭监听
@@ -159,6 +165,9 @@ public class UdpManager implements Runnable{
 		}
 	}
 	
+	public String getAddresssIP() {
+		return addresssIP;
+	}
 
 	public String getLocalhost() {
 		return localhost;

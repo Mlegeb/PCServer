@@ -8,7 +8,7 @@ import com.mlegeb.state.*;
  * @author Mine
  */
 public class StateFactory {
-	public SleepState getSleepState(DataHandler dh) { return new SleepState(); }
+	public SleepState getSleepState(DataHandler dh) { return new SleepState(dh); }
     public WaittingState getWaittingState() { return new WaittingState(); }
     
     

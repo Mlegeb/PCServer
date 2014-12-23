@@ -67,8 +67,8 @@ public class MainFrame extends JFrame implements SocketListener{
 
 	
 	@Override
-	public void getSocketMessage(String e) {
-		dataHandler.procesData(e);
-		System.out.println("receive: " + e);
+	public void getSocketMessage(String msg) {
+		dataHandler.procesData(msg, udpManager);
+		System.out.println("receive: " + msg);
 	}
 }
