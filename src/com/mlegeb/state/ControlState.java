@@ -13,4 +13,5 @@ public abstract class ControlState extends AppState{
 	public ControlState(){
 		massager = Massager.Instance();
 	}
+	
 }

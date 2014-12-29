@@ -32,7 +32,7 @@ public class DataHandler{
 	private PPTState pptState;
 	private ShutdownState shutdownState;
 	private SleepState sleepState;
-	private WaittingState waittingState;
+//	private WaittingState waittingState;
 	private WindowState windowState;
 	
 	
@@ -47,10 +47,10 @@ public class DataHandler{
 		pptState = stateFactory.getPPTState();
 		shutdownState = stateFactory.getShutdownState();
 		sleepState = stateFactory.getSleepState(this);
-		waittingState = stateFactory.getWaittingState();
+//		waittingState = stateFactory.getWaittingState();
 		windowState = stateFactory.getWindowState();
 		
-		appState = sleepState;                            //初始化为睡眠状态
+		appState = sleepState;                                                   //初始化为睡眠状态
 	}
 	
 	/**
@@ -61,8 +61,10 @@ public class DataHandler{
 		if(msg.startsWith("state")){
 			appState = sleepState;	
 		}
-		else if(msg.startsWith("link")){
+		else if(msg.startsWith("link")){                                        //收到“link” 表示连接操作。
+			
 			indexPanel.clientIPText.setText(udpManager.getAddresssIP());
+			udpManager.send("Connection Successful");                           //返回connection successful 表示连接成功
 		}
 		appState.AcceptData(msg);
 	}
