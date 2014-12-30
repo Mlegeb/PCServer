@@ -8,7 +8,6 @@ public class InputState extends ControlState{
 	@Override
 	public void AcceptData(String data) {
 		
-		
 	}
 
 }
