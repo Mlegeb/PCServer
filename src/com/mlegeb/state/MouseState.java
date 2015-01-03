@@ -7,7 +7,7 @@ public class MouseState extends ControlState{
 
 	@Override
 	public void AcceptData(String data) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

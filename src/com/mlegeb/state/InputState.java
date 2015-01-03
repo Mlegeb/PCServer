@@ -7,7 +7,7 @@ public class InputState extends ControlState{
 
 	@Override
 	public void AcceptData(String data) {
-		
+		massager.keyDownAndUp(Integer.parseInt(data));
 	}
 
 }
