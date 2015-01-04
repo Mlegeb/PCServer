@@ -32,6 +32,11 @@ public class UdpManager implements Runnable{
 	 * 接收数据端口（赋值）
 	 */
 	private int iListenerPort = 7590;//接收数据端口（赋值）
+	
+	/**
+	 * 我方发送数据端口（赋值）
+	 */
+	private int iSendPort = 5211;//我方发送数据端口（赋值）
 
 	/**
 	 * 接收数据的对象（接收数据端口）
@@ -81,6 +86,7 @@ public class UdpManager implements Runnable{
 		try 
 		{
 			this.in=new DatagramSocket(this.iListenerPort);//接收数据的对象
+			this.out = new DatagramSocket(this.iSendPort);
 			this.thread=new Thread(this);
 			this.thread.start();
 		} 

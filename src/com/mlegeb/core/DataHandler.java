@@ -64,7 +64,7 @@ public class DataHandler{
 		else if(msg.startsWith("link")){                                        //收到“link” 表示连接操作。
 			
 			indexPanel.clientIPText.setText(udpManager.getAddresssIP());
-			udpManager.send("Connection Successful");                           //返回connection successful 表示连接成功
+			udpManager.send("Successful");                           //返回successful 表示连接成功
 		}
 		appState.AcceptData(msg);
 	}
