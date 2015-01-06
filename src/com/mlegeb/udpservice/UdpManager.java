@@ -116,6 +116,7 @@ public class UdpManager implements Runnable{
 				str = str.substring(1);
 				this.addresssIP = str;
 				String msgList = new String(buf).trim();
+				System.out.println("re: "+msgList);
 				this.handle.getSocketMessage(msgList);
 			}
 		}

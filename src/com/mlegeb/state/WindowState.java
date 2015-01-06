@@ -14,10 +14,10 @@ public class WindowState extends ControlState{
 	public void AcceptData(String data) {
 		switch (data) {
 		case "-1":
-			massager.winChange(-1);
+			massager.winChange(-2);
 			break;
 		case "1":
-			massager.winChange(1);
+			massager.winChange(0);
 			break;
 		case "2":
 			massager.keyDown(KeyEvent.VK_WINDOWS);

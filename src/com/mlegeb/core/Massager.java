@@ -65,26 +65,47 @@ public class Massager {
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 	}
 
-	final Timer timer = new Timer();
-	private static boolean is = true;
 	public void winChange(int data){
-		if(is){
-			robot.keyPress(KeyEvent.VK_ALT);
-			keyDownAndUp(KeyEvent.VK_TAB);	
-			is = false;
+	
+		if(winThread == null){
+			winThread = new Thread(new my());
+			winThread.start();
 		}
-		keyDownAndUp(KeyEvent.VK_UP);
-
-		TimerTask tt=new TimerTask() { 
-			@Override
-			public void run() {
-				System.out.println("到点啦！");
-				is = true;
-				timer.cancel();
+		else{
+			if(winThread.isAlive()){
+				winThread.interrupt();
+				winThread = new Thread(new my());
+				winThread.start();
+				robot.mouseWheel(data);
 			}
-		};
-		timer.schedule(tt, 3000);
+			else{
+				winThread = new Thread(new my());
+				winThread.start();
+				robot.mouseWheel(data);
+			}
+		}
+		
 	}
+	/**
+	 * 窗口切换线程
+	 * @author Xiang_Zi
+	 *
+	 */
+	class my implements Runnable{
+		@Override
+		public void run() {
+			robot.keyPress(KeyEvent.VK_WINDOWS);
+			keyDownAndUp(KeyEvent.VK_TAB);
+			try {
+				Thread.sleep(1200);
+				robot.keyRelease(KeyEvent.VK_WINDOWS);
+			} catch (InterruptedException e) {
+				//e.printStackTrace();
+			}
+		}
+	}
+	private Thread winThread = null;
+	
 
 	public void mouseMove(float x, float y){
 	}
