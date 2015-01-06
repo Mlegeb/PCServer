@@ -16,12 +16,14 @@ public class WindowState extends ControlState{
 		case "-1":
 			massager.winChange(-1);
 			break;
-			
 		case "1":
 			massager.winChange(1);
 			break;
 		case "2":
-			massager.keyWithAlt(KeyEvent.VK_ESCAPE);
+			massager.keyDown(KeyEvent.VK_WINDOWS);
+			massager.keyDown(KeyEvent.VK_M);
+			massager.keyUp(KeyEvent.VK_M );
+			massager.keyUp(KeyEvent.VK_WINDOWS);
 			break;
 			
 		case "3":
@@ -30,8 +32,22 @@ public class WindowState extends ControlState{
 			massager.keyUp(KeyEvent.VK_DOWN);
 			massager.keyUp(KeyEvent.VK_WINDOWS);
 			break;
+		case "-3":
+			massager.keyDown(KeyEvent.VK_WINDOWS);
+			massager.keyDown(KeyEvent.VK_UP);
+			massager.keyUp(KeyEvent.VK_UP);
+			massager.keyUp(KeyEvent.VK_WINDOWS);
+			break;
 		case "4":
 			massager.keyWithAlt(KeyEvent.VK_F4);
+			break;
+		case "5":
+			massager.keyDown(KeyEvent.VK_WINDOWS);
+			massager.keyDown(KeyEvent.VK_E);
+			massager.keyUp(KeyEvent.VK_E);
+			massager.keyUp(KeyEvent.VK_WINDOWS);
+			break;
+			
 
 		}
 		

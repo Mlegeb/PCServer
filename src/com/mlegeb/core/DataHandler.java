@@ -62,11 +62,16 @@ public class DataHandler{
 			appState = sleepState;	
 		}
 		else if(msg.startsWith("link")){                                        //收到“link” 表示连接操作。
-			
-			indexPanel.clientIPText.setText(udpManager.getAddresssIP());
+			indexPanel.stateText.setText("已连接");
 			udpManager.send("Successful");                           //返回successful 表示连接成功
 		}
-		appState.AcceptData(msg);
+		else{
+			changeState(Integer.parseInt(msg.substring(0, 1)));
+			appState.AcceptData(msg.substring(2));
+		}
+		indexPanel.clientIPText.setText(udpManager.getAddresssIP());
+		
+		
 	}
 	
 	/**
@@ -77,35 +82,35 @@ public class DataHandler{
 		switch (state) {
 		case INIT_STATE:
 			appState = sleepState;
-			indexPanel.stateText.setText("等待连接");
+			indexPanel.stateText.setText("已连接");
 			break;
 		case GAME_STATE:
 			appState = gameState;
-			indexPanel.stateText.setText("手柄");
+			indexPanel.stateText.setText("手柄模式");
 			break;
 		case INPUT_STATE:
 			appState = inputState;
-			indexPanel.stateText.setText("输入");
+			indexPanel.stateText.setText("键盘模式");
 			break;
 		case MOUSE_STATE:
 			appState = mouseState;
-			indexPanel.stateText.setText("鼠标");
+			indexPanel.stateText.setText("鼠标模式");
 			break;
 		case MUSIC_STATE:
 			appState = musicState;
-			indexPanel.stateText.setText("播放器");
+			indexPanel.stateText.setText("播放器模式");
 			break;
 		case PPT_STATE:
 			appState = pptState;
-			indexPanel.stateText.setText("PPT");
+			indexPanel.stateText.setText("PPT模式");
 			break;
 		case SHUTDOWN_STATE:
 			appState = shutdownState;
-			indexPanel.stateText.setText("关机");
+			indexPanel.stateText.setText("CMD模式");
 			break;
 		case WINDOW_STATE:
 			appState = windowState;
-			indexPanel.stateText.setText("浏览器");
+			indexPanel.stateText.setText("窗口模式");
 			break;
 		default:
 			appState = sleepState;

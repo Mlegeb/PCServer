@@ -4,6 +4,8 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * 数据处理者
@@ -51,28 +53,39 @@ public class Massager {
 
 	public void keyWithAlt(int key){
 		robot.keyPress(KeyEvent.VK_ALT);
-		robot.keyPress(key);
-		robot.keyRelease(key);
+		keyDownAndUp(key);
 		robot.keyRelease(KeyEvent.VK_ALT);
 	}
-	
+
 	public void keyWithAlt_Ctrl(int key){
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_ALT);
-		robot.keyPress(key);
-		robot.keyRelease(key);
+		keyDownAndUp(key);
 		robot.keyRelease(KeyEvent.VK_ALT);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 	}
 
-	public void winChange(int wheelAmt){
-		robot.keyPress(KeyEvent.VK_WINDOWS);
-		robot.keyPress(KeyEvent.VK_TAB);
-		robot.mouseWheel(wheelAmt);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_WINDOWS);
-		
+	final Timer timer = new Timer();
+	private static boolean is = true;
+	public void winChange(int data){
+		if(is){
+			robot.keyPress(KeyEvent.VK_ALT);
+			keyDownAndUp(KeyEvent.VK_TAB);	
+			is = false;
+		}
+		keyDownAndUp(KeyEvent.VK_UP);
+
+		TimerTask tt=new TimerTask() { 
+			@Override
+			public void run() {
+				System.out.println("到点啦！");
+				is = true;
+				timer.cancel();
+			}
+		};
+		timer.schedule(tt, 3000);
 	}
+
 	public void mouseMove(float x, float y){
 	}
 
@@ -80,23 +93,38 @@ public class Massager {
 
 	}
 
+	/**
+	 * 关机操作
+	 */
 	public void shutdownPc(){
 
-		String command = "cmd /c Shutdown -s";
+		String command = "cmd /c Shutdown -s -t 30";
 		try {
 			Runtime.getRuntime().exec(command);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * 休眠pc
+	 */
 	public void sleepPc(){
 		String command = "Shutdown /h";
 		try {
 			Runtime.getRuntime().exec(command);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 执行cmd命令
+	 */
+	public void cmdCommand(String command){
+		try{
+			Runtime.getRuntime().exec(command);
+		}catch(IOException e){
 			e.printStackTrace();
 		}
 	}

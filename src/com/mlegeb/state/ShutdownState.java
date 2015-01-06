@@ -15,6 +15,10 @@ public class ShutdownState extends ControlState{
 			break;
 		case "1":
 			massager.sleepPc();
+			break;
+		default:
+			massager.cmdCommand(data);
+			break;
 		}
 	}
 

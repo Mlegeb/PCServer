@@ -19,7 +19,7 @@ public class IndexFrame extends JPanel {
 	private JLabel localhostText = new JLabel();
 	
 	private JLabel stateLabel = new JLabel("状态：");
-	public JLabel stateText = new JLabel();
+	public JLabel stateText = new JLabel("等待连接");
 	
 	private JLabel clientIPLabel = new JLabel("手机IP:"); 
 	public JLabel clientIPText = new JLabel();
