@@ -4,9 +4,6 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
-
 /**
  * 数据处理者
  * @author Mine
