@@ -1,6 +1,9 @@
 package com.mlegeb.core;
 
 import java.awt.AWTException;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.PointerInfo;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -105,10 +108,25 @@ public class Massager {
 	
 
 	public void mouseMove(float x, float y){
+		PointerInfo pinfo = MouseInfo.getPointerInfo();
+		Point p = pinfo.getLocation();
+		double mouseX = p.getX();
+		double mouseY = p.getY();
+		
+		robot.mouseMove((int)mouseX + (int)x, (int)mouseY + (int)y);
 	}
 
-	public void clickMove(){
-
+	public void mouseButtonDown(int key){
+		robot.mousePress(key);
+	}
+	
+	public void mouseButtonUp(int key){
+		robot.mouseRelease(key);
+	}
+	
+	public void mouseButtonDownAndUp(int key){
+		robot.mousePress(key);
+		robot.mouseRelease(key);
 	}
 
 	/**
