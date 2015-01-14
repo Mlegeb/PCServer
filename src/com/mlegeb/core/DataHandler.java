@@ -60,6 +60,7 @@ public class DataHandler{
 	public void procesData(String msg, UdpManager udpManager){
 		if(msg.startsWith("state")){
 			appState = sleepState;	
+			appState.AcceptData(msg);
 		}
 		else if(msg.startsWith("link")){                                        //收到“link” 表示连接操作。
 			indexPanel.stateText.setText("已连接");

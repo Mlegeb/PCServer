@@ -27,6 +27,9 @@ public class MusicState extends ControlState{
 		case "4":
 			massager.keyWithAlt_Ctrl(KeyEvent.VK_DOWN);
 			break;
+		case "5":
+//			未实现
+			break;
 		}
 	}
 
