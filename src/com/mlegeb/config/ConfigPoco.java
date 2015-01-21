@@ -7,13 +7,21 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
- * 程序配置序列化 
- * @author Mine
+ * 名称: ConfigPoco.java
+ * 描述: PC端配置基类     实现序列化
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年1月20日
  */
 public class ConfigPoco implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 将配置类序列化后保存到文件
+	 * @param fileName 文件名
+	 */
 	public  void saveConfig(String fileName){
 
 		ObjectOutputStream oo;
@@ -31,6 +39,11 @@ public class ConfigPoco implements Serializable {
 
 	}
 
+	/**
+	 * 读取文件中序列化保存的配置类
+	 * @param fileName
+	 * @return Object 配置类
+	 */
 	@SuppressWarnings("resource")
 	public Object getConfig(String fileName){
 		ObjectInputStream ois;
