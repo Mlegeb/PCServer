@@ -7,6 +7,14 @@ import org.junit.Test;
 import com.mlegeb.config.GameConfigPoco;
 import com.mlegeb.core.Massager;
 
+/**
+ * 名称: ConfigPocoTest.java
+ * 描述: 单元测试类 
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年1月21日
+ */
 public class ConfigPocoTest {
 
 	@Test

@@ -9,8 +9,12 @@ import java.net.UnknownHostException;
 
 
 /**
- * Udp通信管理类
- * @author Mine
+ * 名称: UdpManager.java
+ * 描述: UDP通信管理类
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年1月21日
  */
 public class UdpManager implements Runnable{
 	/**

@@ -4,10 +4,13 @@ import com.mlegeb.frame.MainFrame;
 
 
 /**
- * 主函数
- * @author Mine
+ * 名称: CMain.java
+ * 描述: 主函数-程序入口
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年1月21日
  */
-
 public class CMain {
 
 	public static void main(String[] args) {

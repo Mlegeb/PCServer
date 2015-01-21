@@ -2,8 +2,12 @@ package com.mlegeb.udpservice;
 
 
 /**
- * 监听数据接收接口
- * @author Mine
+ * 名称: SocketListener.java
+ * 描述: 监听数据接收接口-实现接口回调
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年1月21日
  */
 public interface SocketListener {
 	/**

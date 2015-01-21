@@ -3,8 +3,12 @@ package com.mlegeb.state;
 import com.mlegeb.config.GameConfigPoco;
 
 /**
- * 游戏手柄状态
- * @author Mine
+ * 名称: GameState.java
+ * 描述: 手柄模式
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年1月21日
  */
 public class GameState extends ControlState{
 

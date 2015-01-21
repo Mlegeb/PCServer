@@ -12,8 +12,12 @@ import com.mlegeb.udpservice.UdpManager;
 
 
 /**
- * 主窗口界面
- * @author Mine
+ * 名称: MainFrame.java
+ * 描述: 主窗口（三个页面容器）
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年1月21日
  */
 public class MainFrame extends JFrame implements SocketListener{
 

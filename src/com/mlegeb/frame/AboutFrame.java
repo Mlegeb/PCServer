@@ -4,9 +4,12 @@ import javax.swing.JPanel;
 
 
 /**
- * 关于窗口
- * @author Mine
+ * 名称: AboutFrame.java
+ * 描述: 关于窗口页面
  *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年1月21日
  */
 public class AboutFrame extends JPanel {
 

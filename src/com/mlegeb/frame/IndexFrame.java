@@ -7,9 +7,12 @@ import javax.swing.JPanel;
 import com.mlegeb.udpservice.UdpManager;
 
 /**
- * 配置设置界面
- * @author Mine
+ * 名称: IndexFrame.java
+ * 描述: 首页
  *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年1月21日
  */
 public class IndexFrame extends JPanel {
 
