@@ -3,9 +3,12 @@ package com.mlegeb.state;
 import java.awt.event.KeyEvent;
 
 /**
- * 音乐播放器状态
- * @author Mine
+ * 名称: MouseState.java
+ * 描述: 播放器模式
  *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
  */
 public class MusicState extends ControlState{
 

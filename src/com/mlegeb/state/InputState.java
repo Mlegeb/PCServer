@@ -3,8 +3,12 @@ package com.mlegeb.state;
 import java.awt.event.KeyEvent;
 
 /**
- * 文字输入状态
- * @author Mine
+ * 名称: InputState.java
+ * 描述: 键盘模式
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
  */
 public class InputState extends ControlState{
 
@@ -14,7 +18,11 @@ public class InputState extends ControlState{
 		type(data);
 	}
 
-
+	
+	/**
+	 * 判断输入信息
+	 * @param character
+	 */
 	public void type(String character) {
 		switch (character) {
 		case "a": doType(KeyEvent.VK_A); break;
@@ -121,6 +129,10 @@ public class InputState extends ControlState{
 		}
 	}
 
+	/**
+	 * 根据参数的个数进行不同的操作
+	 * @param keycode 键值数组
+	 */
 	private void doType(int... keycode){
 		if(keycode.length>1){
 			massager.keyDown(keycode[0]);

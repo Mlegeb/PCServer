@@ -3,8 +3,12 @@ package com.mlegeb.state;
 import com.mlegeb.core.DataHandler;
 
 /**
- * 休眠状态
- * @author Mine
+ * 名称: MouseState.java
+ * 描述: 休眠模式
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
  */
 public class SleepState extends AppState{
 

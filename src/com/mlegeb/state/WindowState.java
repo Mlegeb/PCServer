@@ -4,9 +4,12 @@ import java.awt.event.KeyEvent;
 
 
 /**
- * 窗口操作状态
- * @author Mine
+ * 名称: MouseState.java
+ * 描述: 窗口模式
  *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
  */
 public class WindowState extends ControlState{
 

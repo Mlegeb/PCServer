@@ -3,11 +3,18 @@ package com.mlegeb.state;
 import java.awt.event.InputEvent;
 
 /**
- * 遥感控制状态
- * @author Mine
+ * 名称: MouseState.java
+ * 描述: 鼠标模式
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
  */
 public class MouseState extends ControlState{
 
+	/**
+	 * 消息分类
+	 */
 	@Override
 	public void AcceptData(String data) {
 		String type = data.substring(0, 1);
@@ -31,6 +38,10 @@ public class MouseState extends ControlState{
 		}
 	}
 
+	/**
+	 * 鼠标移动
+	 * @param data
+	 */
 	private void mouseMove(String data){
 		String point[] = data.split(",");
 		float moveX = Float.valueOf(point[0]);
@@ -39,18 +50,30 @@ public class MouseState extends ControlState{
 		massager.mouseMove(moveX, moveY);
 	}
 
+	/**
+	 * 点击并松开左键
+	 */
 	private void leftButtonDownAndUp(){
 		massager.mouseButtonDownAndUp(InputEvent.BUTTON1_MASK);
 	}
 
+	/**
+	 * 点击左键
+	 */
 	private void leftButtonDown(){
 		massager.mouseButtonDown(InputEvent.BUTTON1_MASK);
 	}
 
+	/**
+	 * 松开左键
+	 */
 	private void leftButtonUp(){
 		massager.mouseButtonUp(InputEvent.BUTTON1_MASK);
 	}
 	
+	/**
+	 * 点击并松开右键
+	 */
 	private void rightButton(){
 		massager.mouseButtonDownAndUp(InputEvent.BUTTON3_MASK);
 	}
