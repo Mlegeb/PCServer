@@ -10,7 +10,7 @@ import java.awt.event.KeyEvent;
  * @version v1.0
  * @created 2015年2月4日
  */
-public class InputState extends ControlState{
+public class KeyboardState extends ControlState{
 
 	@Override
 	public void AcceptData(String data) {

@@ -37,7 +37,7 @@ public class DataHandler{
 	private GameState  gameState;
 
 	/** 键盘模式 */
-	private InputState inputState;
+	private KeyboardState inputState;
 
 	/** 鼠标模式 */
 	private MouseState mouseState;

@@ -15,7 +15,7 @@ public class StateFactory {
     public WaittingState getWaittingState() { return new WaittingState(); }
    
     public GameState getGameState() { return new GameState(); }
-    public InputState getInputState() { return new InputState(); }
+    public KeyboardState getInputState() { return new KeyboardState(); }
     public MouseState getMouseState() { return new MouseState(); }
     public MusicState getMusicState() { return new MusicState(); }
     public PPTState getPPTState() { return new PPTState(); }
