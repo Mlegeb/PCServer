@@ -1,6 +1,8 @@
 package com.mlegeb.frame;
 
 
+import java.awt.Font;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -18,6 +20,8 @@ public class IndexFrame extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
+	private JLabel titleLabel = new JLabel("基于手机APP的\"虚拟主机控制器\"");
+	
 	private JLabel ipLabel = new JLabel("本机IP:");
 	private JLabel localhostText = new JLabel();
 	
@@ -28,6 +32,25 @@ public class IndexFrame extends JPanel {
 	public JLabel clientIPText = new JLabel();
 	private UdpManager udpManager;
 	
+	//标题大小
+	private static final int lableSizeX = 45;
+	private static final int lableSizeY = 20;
+	
+	//标题位置
+	private static final int lableLocationX = 80;
+	private static final int lableLocationY = 100;
+	
+	//文本大小
+	private static final int textSizeX = 200;
+	private static final int textSizeY = 20;
+	
+	//文本位置
+	private static final int textLocationX =150;
+	private static final int textLocationY = 100;
+	
+	//相对位置差
+	private static final int movePixels = 30;
+	
 	/**
 	 *构造函数初始化
 	 * @param udpManager
@@ -35,29 +58,34 @@ public class IndexFrame extends JPanel {
 	public IndexFrame(UdpManager udpManager){
 		this.setLayout(null );
 		
-		//本地ip
-		this.ipLabel.setSize(45, 20);
-		this.ipLabel.setLocation(20, 15);
-		this.localhostText.setSize(200, 20);
-		this.localhostText.setLocation(65, 15);
+		//标题
+		this.titleLabel.setFont(new Font("", 1, 15));
+		this.titleLabel.setSize(250, 30);
+		this.titleLabel.setLocation(45, 30);
+		
+		//本地IP
+		this.ipLabel.setSize(lableSizeX, lableSizeY);
+		this.ipLabel.setLocation(lableLocationX, lableLocationY);
+		this.localhostText.setSize(textSizeX, textSizeY);
+		this.localhostText.setLocation(textLocationX, textLocationY);
 		
 		//客户端IP
-		this.clientIPLabel.setSize(45, 20);
-		this.clientIPLabel.setLocation(160, 15);
-		this.clientIPText.setSize(200, 20);
-		this.clientIPText.setLocation(205, 15);
+		this.clientIPLabel.setSize(lableSizeX, lableSizeY);
+		this.clientIPLabel.setLocation(lableLocationX, lableLocationY+movePixels);
+		this.clientIPText.setSize(textSizeX, textSizeY);
+		this.clientIPText.setLocation(textLocationX, textLocationY+movePixels);
 		
 		//状态
-		this.stateLabel.setSize(40, 20);
-		this.stateLabel.setLocation(110, 45);
-		this.stateText.setSize(200, 20);
-		this.stateText.setLocation(160, 45);
+		this.stateLabel.setSize(lableSizeX, lableSizeY);
+		this.stateLabel.setLocation(lableLocationX, lableLocationY+ 2*movePixels);
+		this.stateText.setSize(textSizeX, textSizeY);
+		this.stateText.setLocation(textLocationX, textLocationY+ 2*movePixels);
 		
 		this.udpManager = udpManager;
 		
 		localhostText.setText(this.udpManager.getLocalhost());
 		
-		
+		this.add(titleLabel);
 		this.add(ipLabel);
 		this.add(localhostText);
 		this.add(clientIPLabel);

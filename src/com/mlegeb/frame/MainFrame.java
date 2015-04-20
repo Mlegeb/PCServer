@@ -39,7 +39,7 @@ public class MainFrame extends JFrame implements SocketListener{
 
 		// 设置面板布局为网格布局
 		this.setLayout(new GridLayout(1,1));
-		this.setTitle("PC Server");
+		this.setTitle("PC 主机端");
 		this.setSize(330,450);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
@@ -52,8 +52,8 @@ public class MainFrame extends JFrame implements SocketListener{
 		indexPanel = new IndexFrame(udpManager);
 		tabPane.addTab("主页", indexPanel);
 
-		gamePadPanel = new GamePadFrame();
-		tabPane.addTab("手柄", gamePadPanel);
+//		gamePadPanel = new GamePadFrame();
+//		tabPane.addTab("手柄", gamePadPanel);
 
 		aboutPanel = new AboutFrame();
 		tabPane.addTab("关于",  aboutPanel);
