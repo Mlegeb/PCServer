@@ -40,7 +40,7 @@ public class MainFrame extends JFrame implements SocketListener{
 		// 设置面板布局为网格布局
 		this.setLayout(new GridLayout(1,1));
 		this.setTitle("PC 主机端");
-		this.setSize(330,450);
+		this.setSize(330,300);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
